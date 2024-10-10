@@ -15,7 +15,7 @@ public class UpdateUser {
                         "    \"name\": \"amol\",\n" +
                         "    \"job\": \"Test lead\"\n" +
                         "}")
-                .when().put("/api/users/2")
+                .when().patch("/api/users/2")
                 .then().log().all().assertThat().statusCode(200);
     }
 }

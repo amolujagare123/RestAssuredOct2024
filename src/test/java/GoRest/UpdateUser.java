@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.given;
 
-public class CreateUser {
+public class UpdateUser {
 
     public static void main(String[] args) {
 
@@ -16,11 +16,11 @@ public class CreateUser {
                 .contentType("application/json")
                 .body("{\n" +
                         "        \"name\": \"Rohini Rajput\",\n" +
-                        "        \"email\": \"rohini11@gmail.com\",\n" +
+                        "        \"email\": \"rohini22@gmail.com\",\n" +
                         "        \"gender\": \"female\",\n" +
                         "        \"status\": \"active\"\n" +
                         "    }")
-                 .when().post("/public/v2/users")
+                 .when().patch("/public/v2/users/7463199")
                 .then().log().all().assertThat().statusCode(200);
     }
 }
