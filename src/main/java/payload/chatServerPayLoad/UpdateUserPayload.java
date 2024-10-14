@@ -27,7 +27,7 @@ public class UpdateUserPayload {
                 "}\n";
     }
 
-    public static String getUpdateUserPayLoad(String username,String password,String name,String surname,String email,String nickName)
+    public static String getUserPayLoad(String username,String password,String name,String surname,String email,String nickName)
     {
         return "{\n" +
                 "\"username\": \""+username+"\", \n" +

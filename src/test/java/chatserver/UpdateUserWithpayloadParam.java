@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.given;
 import static payload.chatServerPayLoad.UpdateUserPayload.getUpdateUserPayLoad;
+import static payload.chatServerPayLoad.UpdateUserPayload.getUserPayLoad;
 
 public class UpdateUserWithpayloadParam {
 
@@ -21,7 +22,7 @@ public class UpdateUserWithpayloadParam {
         given().log().all()
                 //.auth().oauth2("amol5555")
                 .auth().preemptive().basic("admin","admin123")
-                .body(getUpdateUserPayLoad(username,password,name,surname,email,nickname))
+                .body(getUserPayLoad(username,password,name,surname,email,nickname))
                 .when().put("/restapi/user/296")
                 .then().log().all().assertThat().statusCode(200);
     }
