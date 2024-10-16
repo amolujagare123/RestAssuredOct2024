@@ -1,6 +1,7 @@
 package ComplexJson;
 
 import io.restassured.path.json.JsonPath;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -61,6 +62,23 @@ public class ComplexJsonDemo {
         }
 
         // 6. Verify if Sum of all Course prices matches with Purchase Amount
+        int expected = 1162;
+        int actaul = 0;
+        for(int i=0;i<size;i++) {
+
+
+            int price = jsonPath.get("courses["+i+"].price");
+            int copies = jsonPath.get("courses["+i+"].copies");
+            int total = price * copies ;
+
+            actaul = actaul + total;
+
+        }
+
+        System.out.println("actual="+actaul);
+        System.out.println("expected="+expected);
+        Assert.assertEquals(actaul,expected,"wrong sum");
+
 
     }
 
