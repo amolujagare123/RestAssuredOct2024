@@ -12,7 +12,7 @@ public class GetAllUsers {
 
         given().log().all().queryParam("page","2")
                 .when().get("/api/users")
-                .then().log().all().assertThat().statusCode(201);
+                .then().log().all().assertThat().statusCode(200);
 
     }
 }
